@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 
 class Token(BaseModel):
@@ -38,9 +38,10 @@ class PostCreate(PostBase):
     title: str
     content: str
 
+
 class PostUpdate(PostBase):
-    title: str
-    content: str
+    title: Optional[str]
+    content: Optional[str]
 
 
 class PostResponse(PostBase):

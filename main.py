@@ -9,6 +9,7 @@ app.include_router(auth.router)
 app.include_router(posts.router)
 
 
+
 def create_tables():
     Base.metadata.create_all(bind=engine)
 
