@@ -44,6 +44,10 @@ class PostUpdate(PostBase):
     content: Optional[str]
 
 
+class PostDelete(PostBase):
+    pass
+
+
 class PostResponse(PostBase):
     id: int
     author: UserProfile
@@ -58,3 +62,12 @@ class PostWithAuthorResponse(PostResponse):
 
 class LikedPostResponse(BaseModel):
     liked_posts: List[PostResponse]
+
+
+class UserProfileWithPosts(BaseModel):
+    user_profile: UserProfile
+    user_posts: List[PostResponse]
+
+
+class FavoritesUserPosts(BaseModel):
+    favorite_posts: List[PostResponse]
