@@ -62,9 +62,9 @@ def register(user: UserRegistration, db: Session = Depends(get_db)):
     response = requests.get(url)
     data = response.json()
     email_verify = data["data"]["status"]
-    if email_verify == "valid":
+    if email_verify == "invalid":
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST, detail="Email already exists."
+            status_code=status.HTTP_400_BAD_REQUEST, detail="Email doesn't exist"
         )
     else:
         new_user = User(
